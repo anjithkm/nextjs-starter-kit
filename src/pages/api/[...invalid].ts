@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { verifyAuthenticationMiddleware } from '@/api-middlewares/authentication'
+import { verifyAuthenticationMiddleware } from '@/middlewares/authentication'
 
 // API route handler using the middleware-like function
 export default async function handler(

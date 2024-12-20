@@ -19,41 +19,27 @@ export default function Home() {
 
 	const [loading,setLoading]=useState(false);
 
-	const apiFetch = async()=>{
-
-		try{
-
-			const res = await api.get('/login?name=anjith',(event)=>{
-
-				if(event === 'LOADING'){
-					setLoading(true)
-				}
-
-				if(event === 'DONE'){
-					setLoading(false)
-				}
-
-			});
-
-
-			console.log("res:",res)
-	
-
-		}catch(error:any){
-
-			console.error(error)
-
-		}
-
-	}
-
-
 
 	useEffect(() => {
-		apiFetch()
+
+	(async()=>{
+		try{
+		   api.get('/login',(event:any)=>{
+				console.log("event",event)
+			}).then(()=>{})
+		    api.delete('/login').then(()=>{});
+			const data = {
+				email:"anjith",
+				password:"password123"
+			}
+			api.post('/login',data).then(()=>{});
+			api.patch('/login',data).then(()=>{});
+		}catch(error:any){
+			console.error(error)
+		}
+	})();
+		
 	},[]);
-
-
 
 
 	return (

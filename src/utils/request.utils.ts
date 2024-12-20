@@ -9,27 +9,10 @@ interface APIClient {
   upload: ( endpoint: string, file: File, onProgress?: (event: RequestProgress) => void ) => Promise<any>;
 }
 
-function isXML(data:any) {
-  try {
-    // Try parsing the data as XML
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(data, 'application/xml');
-
-    // Check for parsing errors (DOMParser does not throw an error on invalid XML)
-    const parseError = doc.querySelector('parsererror');
-    if (parseError) {
-      // If there's a parser error, it's not valid XML
-      return false;
-    }
-    return true;  // It's valid XML
-  } catch (e) {
-    return false;  // Error means not valid XML
-  }
-}
 
 export const  createAPIClient = (baseURL: string, timeout = 5000, debounceDelay = 300) : APIClient => {
   
-  let debounceTimer: ReturnType<typeof setTimeout> | null = null;  // Debounce timer stored in closure
+  const debounceTimer: ReturnType<typeof setTimeout> | null = null;  // Debounce timer stored in closure
 
   // Helper function to handle the request
   const request = (
@@ -130,14 +113,17 @@ export const  createAPIClient = (baseURL: string, timeout = 5000, debounceDelay 
     onProgress?: (event: RequestProgress) => void
   ): Promise<any> => {
     return new Promise((resolve, reject) => {
+
       if (debounceTimer) {
         clearTimeout(debounceTimer); // Cancel any previous timer
       }
-      debounceTimer = setTimeout(() => {
+
+      setTimeout(() => {
         request(method, endpoint, data, onProgress)
           .then(resolve)
           .catch(reject);
       }, debounceDelay);
+
     });
   };
 

@@ -1,22 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { verifyToken } from "@/utils/jwt";
-import { JwtPayload } from "jsonwebtoken";
-
-// Define the type for your request object to include `user`
-
-// You can replace `JwtPayload` with a more specific interface if needed
-declare module "next" {
-	interface NextApiRequest {
-		user?: JwtPayload;
-	}
-}
 
 // API route handler using the middleware-like function
 export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse,
 ) {
-	console.log("req", req.query);
 
 	const { name, id } = req.query;
 

@@ -16,7 +16,7 @@
 		"types": ["jest"],
 		"paths": {
 			"@/*": ["./src/*"],
-			"@middlewares/*": ["./src/api-middlewares/*"]
+			"@middlewares/*": ["./src/middlewares/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
