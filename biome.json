@@ -4,16 +4,16 @@
 		"enabled": true,
 		"rules": {
 			"correctness": {
-				"useExhaustiveDependencies":"off"
+				"useExhaustiveDependencies": "off"
 			},
 			"suspicious": {
 				"noDebugger": "off",
 				"noConsoleLog": "info",
 				"noExplicitAny": "off"
-			  },
-			  "style":{
+			},
+			"style": {
 				"useImportType": "off"
-			  },
+			},
 
 			"recommended": true
 		}
@@ -37,10 +37,10 @@
 	"files": {
 		"ignore": [
 			"**/node_modules",
+			"**/coverage",
 			"**/dist",
 			"CHANGELOG.md",
 			"pnpm-lock.yaml",
-			"contracts/*.json",
 			"abi/*.json",
 			"**/.next",
 			"**/.expo",
@@ -51,4 +51,3 @@
 		]
 	}
 }
-

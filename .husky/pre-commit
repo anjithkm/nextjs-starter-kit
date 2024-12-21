@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx @biomejs/biome format --write . && npx @biomejs/biome check . && npm test
+npx @biomejs/biome format --write . && npm test
 

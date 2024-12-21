@@ -1,8 +1,7 @@
-import { FC } from "react";
+import { FC } from 'react'
 
-export const Greeting:FC <{name:string}>= ({name}) => {
+export const Greeting: FC<{ name: string }> = ({ name }) => {
+	return <h1>Hello, {name}!</h1>
+}
 
-	return <h1>Hello, {name}!</h1>;
-};
-
-export default Greeting;
+export default Greeting
