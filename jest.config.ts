@@ -103,7 +103,9 @@ const config: Config = {
 	// ],
 
 	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-	// moduleNameMapper: {},
+	moduleNameMapper: {
+		'^@/(.*)$': '<rootDir>/src/$1', // Map '@/' to the root directory
+	},
 
 	// An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
 	// modulePathIgnorePatterns: [],
@@ -136,7 +138,7 @@ const config: Config = {
 	// restoreMocks: false,
 
 	// The root directory that Jest should scan for tests and modules within
-	// rootDir: undefined,
+	rootDir: './',
 
 	// A list of paths to directories that Jest should use to search for files in
 	// roots: [
@@ -162,7 +164,7 @@ const config: Config = {
 	testEnvironment: 'jsdom',
 
 	// Options that will be passed to the testEnvironment
-	// testEnvironmentOptions: {},
+	// testEnvironmentOptions: undefined
 
 	// Adds a location field to test results
 	// testLocationInResults: false,
@@ -193,16 +195,13 @@ const config: Config = {
 	},
 
 	// An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-	// transformIgnorePatterns: [
-	//   "/node_modules/",
-	//   "\\.pnp\\.[^\\/]+$"
-	// ],
+	transformIgnorePatterns: ['/node_modules/', '\\.pnp\\.[^\\/]+$'],
 
 	// An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
 	// unmockedModulePathPatterns: undefined,
 
 	// Indicates whether each individual test should be reported during the run
-	// verbose: undefined,
+	verbose: true,
 
 	// An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
 	// watchPathIgnorePatterns: [],

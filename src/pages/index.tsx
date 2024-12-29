@@ -1,8 +1,11 @@
 import Image from 'next/image'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Greeting } from '../components/greeting'
-import { useEffect, useLayoutEffect, useState } from 'react'
-import api from '@/pages/api'
+import { useEffect, useState } from 'react'
+import React, { JSX } from 'react'
+import Posts from '@/components/post'
+import Counter from '@/components/counter'
+import CreatePost from '@/components/create-post'
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -14,27 +17,11 @@ const geistMono = Geist_Mono({
 	subsets: ['latin'],
 })
 
-export default function Home() {
-	const [loading, setLoading] = useState(false)
+export const Index = () => {
 
-	useEffect(() => {
-		;(async () => {
-			try {
-				api.get('/login', (event: any) => {
-					console.log('event', event)
-				}).then(() => {})
-				api.delete('/login').then(() => {})
-				const data = {
-					email: 'anjith',
-					password: 'password123',
-				}
-				api.post('/login', data).then(() => {})
-				api.patch('/login', data).then(() => {})
-			} catch (error: any) {
-				console.error(error)
-			}
-		})()
-	}, [])
+
+	const [data, setData] = useState('')
+
 
 	return (
 		<div
@@ -73,8 +60,13 @@ export default function Home() {
 					</a>
 				</div>
 				<div className="flex flex-row text-nowrap">
-					{Greeting({ name: 'Anjith' })} {loading && 'loading...'}
+					<Greeting name={`${data}`} />
 				</div>
+				
+				<Counter />
+				<Posts />
+				<CreatePost/>
+
 			</main>
 			<footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
 				<a
@@ -108,3 +100,5 @@ export default function Home() {
 		</div>
 	)
 }
+
+export default Index
