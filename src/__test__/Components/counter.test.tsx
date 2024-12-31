@@ -4,29 +4,24 @@ import { Provider } from 'react-redux'
 import Counter from '@/components/counter'
 import { store } from '@/store'
 
-
 describe('Counter Component', () => {
-
 	// beforeEach(() => {
 	// 	// Restore the original implementation
 	// 	jest.resetAllMocks()
 	// 	jest.resetModules()
 	// })
 
-	beforeEach(() => { 
-		console.log("refreshed ...")
-		cleanup();  
-	});
-	
+	beforeEach(() => {
+		console.log('refreshed ...')
+		cleanup()
+	})
 
 	test('increments counter', () => {
-
-
 		render(
-		<Provider store={store}>
-			<Counter />
-		</Provider>
-	    )
+			<Provider store={store}>
+				<Counter />
+			</Provider>,
+		)
 
 		expect(screen.getByRole('status')).toHaveTextContent('Count: 0')
 		const incrementButton = screen.getByText('Increment')
@@ -35,12 +30,11 @@ describe('Counter Component', () => {
 	})
 
 	test('decrements counter', () => {
-
 		render(
 			<Provider store={store}>
 				<Counter />
-			</Provider>
-			)
+			</Provider>,
+		)
 
 		expect(screen.getByRole('status')).toHaveTextContent('Count: 1')
 
@@ -52,12 +46,11 @@ describe('Counter Component', () => {
 	})
 
 	test('queries using different methods', () => {
-
 		render(
 			<Provider store={store}>
 				<Counter />
-			</Provider>
-			)
+			</Provider>,
+		)
 
 		// By Text
 		expect(screen.getByText('Increment')).toBeInTheDocument()
@@ -75,8 +68,5 @@ describe('Counter Component', () => {
 		// By Placeholder Text (for input elements with placeholder attributes)
 		// render(<input placeholder="Search" />);
 		// expect(screen.getByPlaceholderText('Search')).toBeInTheDocument();
-
 	})
 })
-
-

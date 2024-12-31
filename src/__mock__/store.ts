@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { counter } from '@/services/slice/counter'
-import { api } from '@/services/api' 
+import { api } from '@/services/api'
 
 // Define the store
 export const mockStore = configureStore({
@@ -8,5 +8,5 @@ export const mockStore = configureStore({
 		[api.reducerPath]: api.reducer,
 		[counter.name]: counter.reducer,
 	}),
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware)
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 })

@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery, EndpointBuilder, BaseQueryFn } from '@reduxjs/toolkit/query/react'
 
-
 // Define TypeScript interfaces for API responses
 interface Post {
 	id: number

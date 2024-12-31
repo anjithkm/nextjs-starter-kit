@@ -15,7 +15,6 @@ jest.mock('@/services/api', () => {
 	}
 })
 
-
 describe('Index Page', () => {
 	afterAll(() => {
 		// Restore the original implementation
@@ -41,7 +40,7 @@ describe('Index Page', () => {
 		render(
 			<Provider store={mockStore}>
 				<Index />
-			</Provider>
+			</Provider>,
 		)
 
 		// expect(screen.getByText(/Hello/i)).toBeInTheDocument();

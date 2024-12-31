@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { increment, decrement, reset } from '@/services/slice/counter'
 
 const Counter: React.FC = () => {
-
 	const dispatch = useDispatch()
 	const count = useSelector((state: any) => state.counter.value)
 
