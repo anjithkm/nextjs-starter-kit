@@ -15,6 +15,7 @@
 		"incremental": true,
 		"types": ["jest"],
 		"paths": {
+			"#/*": ["./*"],
 			"@/*": ["./src/*"],
 			"@middlewares/*": ["./src/middlewares/*"]
 		}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useCreatePostMutation } from '../services/api'
+import { useCreatePostMutation } from '@/services/api'
 
 const CreatePost: React.FC = () => {
 	const [title, setTitle] = useState('')
@@ -16,7 +16,7 @@ const CreatePost: React.FC = () => {
 	return (
 		<div>
 			<h1>Create Post</h1>
-			<form onSubmit={handleSubmit}>
+			<form className="flex flex-col space-y-1" onSubmit={handleSubmit}>
 				<input
 					type="text"
 					value={title}
@@ -25,7 +25,7 @@ const CreatePost: React.FC = () => {
 					required
 				/>
 				<textarea value={body} onChange={(e) => setBody(e.target.value)} placeholder="Body" required />
-				<button type="submit" disabled={isLoading}>
+				<button className="border px-[2px]" type="submit" disabled={isLoading}>
 					{isLoading ? 'Creating...' : 'Create'}
 				</button>
 			</form>

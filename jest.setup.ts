@@ -1,2 +1,2 @@
-import '@testing-library/jest-dom';
-import '@/__mock__/index';
+import '@testing-library/jest-dom'
+import '@/__mock__/index'

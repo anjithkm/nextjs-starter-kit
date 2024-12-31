@@ -1,12 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
+import { counter } from '@/services/slice/counter'
 import { api } from '@/services/api' // Import RTK Query API
 
 // Define the store
 export const store = configureStore({
-	reducer: {
+	reducer: combineReducers({
 		[api.reducerPath]: api.reducer,
-	},
+		[counter.name]: counter.reducer,
+	}),
 	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 	devTools: process.env.NODE_ENV !== 'production',
 })

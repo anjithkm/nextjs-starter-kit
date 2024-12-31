@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Greeting } from '../components/greeting'
-import { useEffect, useState } from 'react'
+import { Greeting } from '@/components/greeting'
+import { useState } from 'react'
 import React, { JSX } from 'react'
 import Posts from '@/components/post'
 import Counter from '@/components/counter'
 import CreatePost from '@/components/create-post'
+import Table from '@/components/table'
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -18,10 +19,7 @@ const geistMono = Geist_Mono({
 })
 
 export const Index = () => {
-
-
 	const [data, setData] = useState('')
-
 
 	return (
 		<div
@@ -62,11 +60,11 @@ export const Index = () => {
 				<div className="flex flex-row text-nowrap">
 					<Greeting name={`${data}`} />
 				</div>
-				
+
 				<Counter />
 				<Posts />
-				<CreatePost/>
-
+				<CreatePost />
+				<Table />
 			</main>
 			<footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
 				<a
